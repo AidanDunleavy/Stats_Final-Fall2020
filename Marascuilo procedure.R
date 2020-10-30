@@ -1,5 +1,5 @@
 ## Set the proportions of interest.
-p = c(0.120, 0.153, 0.140, 0.210, 0.127)
+p = covid2$`populations$POPESTIMATE2019`/sum(covid2$`populations$POPESTIMATE2019`)
 N = length(p)
 value = critical.range = c()
 
@@ -13,4 +13,8 @@ for (i in 1:(N-1))
 }
 }
 
-round(cbind(value,critical.range),3)
+x = round(cbind(value,critical.range),3)
+head(x)
+value
+sum(value >= critical.range)
+x
