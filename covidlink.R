@@ -24,15 +24,19 @@ plot(1:319,data$cases[which(data$geoId=="US")])
 
 plot(1:319,log(data$cases[which(data$geoId=="US")]))
 
+data$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[which(data$geoId=="US")]
 
 plot.new()
 # par(mfrow=c(1,1))
 
-data2 = data.frame(dates = data$dateRep[which(data$geoId=="US")], cases = data$cases[which(data$geoId=="US")], days.after.2019 = hello)
+data2 = data.frame(dates = data$dateRep[which(data$geoId=="US")], cases = data$cases[which(data$geoId=="US")], Cumulative_number_for_14_days_of_COVID.19_cases_per_100000=data$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[which(data$geoId=="US")],days.after.2019 = hello)
 data2<-data2[dim(data2)[1]:1,]
 data2$days.after.2019 <- hello
 head(data2)
-plot(1:dim(data2)[1], data2$cases)
+
+##################################################
+plot.new()
+plot(data2$days.after.2019, data2$cases)
 model = lm(cases~days.after.2019, data2)
 abline(model)
 
@@ -41,7 +45,16 @@ plot.new()
 par(mfrow=c(2,2))
 plot(model)
 
+
 plot.new()
 par(mfrow=c(1,1))
 b=boxcox(model)
 boxcox(model)
+
+
+###################################
+model2 = lm(Cumulative_number_for_14_days_of_COVID.19_cases_per_100000 ~ days.after.2019, data2)
+plot.new()
+plot(Cumulative_number_for_14_days_of_COVID.19_cases_per_100000 ~ days.after.2019, data2)
+abline(model2)
+data2[200:totaldays,]
