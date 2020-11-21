@@ -210,33 +210,33 @@ plot(dataRomania$days.after.2019, dataRomania$Cumulative_number_for_14_days_of_C
 #####################
 
 
-casesUkraine = data$cases[which(data$countriesAndTerritories=="Ukraine")]
-totaldaysUkraine = length(which(data$countriesAndTerritories=="Ukraine"))
-totaldaysUkraine
+casesCroatia = data$cases[which(data$countriesAndTerritories=="Croatia")]
+totaldaysCroatia = length(which(data$countriesAndTerritories=="Croatia"))
+totaldaysCroatia
 
-UKR = 1:totaldaysUkraine
-UKR
-
-
-data$dateRep[which(data$countriesAndTerritories=="Ukraine")]
-data$cases[which(data$countriesAndTerritories=="Ukraine")]
-
-sum(data$deaths[which(data$countriesAndTerritories=="Ukraine")])
+CR = 1:totaldaysCroatia
+CR
 
 
+data$dateRep[which(data$countriesAndTerritories=="Croatia")]
+data$cases[which(data$countriesAndTerritories=="Croatia")]
 
-dataUkraine= data.frame(dates = data$dateRep[which(data$countriesAndTerritories=="Ukraine")], casesUkraine = data$cases[which(data$countriesAndTerritories=="Ukraine")],
-                        Cumulative_number_for_14_days_of_COVID.19_cases_per_100000=data$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[which(data$countriesAndTerritories=="Ukraine")],
-                        days.after.2019 = UKR,
-                        deaths = data$deaths[which(data$countriesAndTerritories=="Ukraine")])
+sum(data$deaths[which(data$countriesAndTerritories=="Croatia")])
 
-dataUkraine<-dataUkraine[dim(dataUkraine)[1]:1,]
-dataUkraine$days.after.2019 <- UKR
-head(dataUkraine)
-dataUkraine$casesUkraine[200:totaldaysUkraine]
+
+
+dataCroatia= data.frame(dates = data$dateRep[which(data$countriesAndTerritories=="Croatia")], casesCroatia = data$cases[which(data$countriesAndTerritories=="Croatia")],
+                        Cumulative_number_for_14_days_of_COVID.19_cases_per_100000=data$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[which(data$countriesAndTerritories=="Croatia")],
+                        days.after.2019 = CR,
+                        deaths = data$deaths[which(data$countriesAndTerritories=="Croatia")])
+
+dataCroatia<-dataCroatia[dim(dataCroatia)[1]:1,]
+dataCroatia$days.after.2019 <- CR
+head(dataCroatia)
+dataCroatia$casesCroatia[200:totaldaysCroatia]
 
 plot.new()
-plot(dataUkraine$days.after.2019, dataUkraine$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataCroatia$days.after.2019, dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
 
 #################################
 
@@ -298,3 +298,23 @@ plot.new()
 plot(dataIreland$days.after.2019, dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
 
 ###############################
+
+table=cbind.data.frame(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataFrance$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataSweden$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataRomania$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310],
+                       dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310])
+table
+
+chisq.test(table)
+
+chisq.test(table, simulate.p.value=TRUE)
+
+
+
+
