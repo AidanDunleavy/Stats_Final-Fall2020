@@ -316,5 +316,5 @@ chisq.test(table)
 chisq.test(table, simulate.p.value=TRUE)
 
 
-
+par(mfrow=c(4,3))
 
