@@ -32,6 +32,7 @@ casesItaly = data$cases[which(data$countriesAndTerritories=="Italy")]
 totaldaysItaly = length(which(data$countriesAndTerritories=="Italy"))
 totaldaysItaly
 
+
 IT = 1:totaldaysItaly
 IT
 
@@ -153,6 +154,7 @@ casesSweden = data$cases[which(data$countriesAndTerritories=="Sweden")]
 totaldaysSweden = length(which(data$countriesAndTerritories=="Sweden"))
 totaldaysSweden
 
+
 SE = 1:totaldaysSweden
 SE
 
@@ -172,6 +174,7 @@ dataSweden= data.frame(dates = data$dateRep[which(data$countriesAndTerritories==
 dataSweden<-dataSweden[dim(dataSweden)[1]:1,]
 dataSweden$days.after.2019 <- SE
 head(dataSweden)
+
 dataSweden$casesSweden[200:totaldaysSweden]
 
 plot.new()
@@ -311,10 +314,49 @@ table=cbind.data.frame(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases
                        dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310])
 table
 
+
+table2=cbind.data.frame(dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1,
+                        dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1)
+table2
+
+
+table3=cbind.data.frame(dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1,
+                        dataSweden$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1)
+table3
+
+table4=cbind.data.frame(dataRomania$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1,
+                        dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1)
+table4
+
+table5=cbind.data.frame(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1,
+                        dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]+1)
+table5
+
+###############################
+
+
 chisq.test(table)
 
 chisq.test(table, simulate.p.value=TRUE)
 
+chisq.test(table2)
 
+chisq.test(table2, simulate.p.value=TRUE)
+
+chisq.test(table3)
+
+chisq.test(table3, simulate.p.value=TRUE)
+
+chisq.test(table4)
+
+chisq.test(table4, simulate.p.value=TRUE)
+
+chisq.test(table5)
+
+<<<<<<< HEAD
 par(mfrow=c(4,3))
+=======
+chisq.test(table5, simulate.p.value=TRUE)
+
+>>>>>>> e9f043bc51fd1a93c96e2bbbf77eeb5483157a46
 
