@@ -353,10 +353,11 @@ chisq.test(table4, simulate.p.value=TRUE)
 
 chisq.test(table5)
 
-<<<<<<< HEAD
 par(mfrow=c(4,3))
-=======
 chisq.test(table5, simulate.p.value=TRUE)
+plot.new()
 
->>>>>>> e9f043bc51fd1a93c96e2bbbf77eeb5483157a46
-
+casesC = as.data.frame(tapply(data$cases, data$geoId, sum))
+popC = as.data.frame(tapply(data$popData2019, data$geoId, mean))
+casesC
+popC
