@@ -354,6 +354,7 @@ chisq.test(table4, simulate.p.value=TRUE)
 chisq.test(table5)
 
 par(mfrow=c(4,3))
+par(mfrow=c(1,1))
 chisq.test(table5, simulate.p.value=TRUE)
 plot.new()
 
@@ -361,3 +362,7 @@ casesC = as.data.frame(tapply(data$cases, data$geoId, sum))
 popC = as.data.frame(tapply(data$popData2019, data$geoId, mean))
 casesC
 popC
+
+head(table5)
+hist(dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]
