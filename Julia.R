@@ -335,23 +335,6 @@ table5
 ###############################
 
 
-chisq.test(table)
-
-chisq.test(table, simulate.p.value=TRUE)
-
-chisq.test(table2)
-
-chisq.test(table2, simulate.p.value=TRUE)
-
-chisq.test(table3)
-
-chisq.test(table3, simulate.p.value=TRUE)
-
-chisq.test(table4)
-
-chisq.test(table4, simulate.p.value=TRUE)
-
-chisq.test(table5)
 
 par(mfrow=c(4,3))
 par(mfrow=c(1,1))
@@ -369,5 +352,179 @@ dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]
 
 
 
+########################################
+
+######Germany and Italy
+
+par(mfrow=c(2,1))
+plot(dataGermany$days.after.2019, dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataItaly$days.after.2019, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125]*8/3, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125], alternative  ="two.sided")
+t.test(dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320]*8/3, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320], alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=1.407e-15 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Germany and Italy is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.1738 is greater than our alpha value=0.05, so we cannot reject the null hypothesis.
+#Therefore, we do not have enough evidence to say that the data distribution of Germany and Italy is different on (275,320).
+
+#The proportion is Italy=8/3*Germany
+
+#We can say that Italy and Germany had a more similar shape distribution on the second wave than in the first wave.
+
+#####Germany and Ireland
+
+par(mfrow=c(2,1))
+plot(dataGermany$days.after.2019, dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataIreland$days.after.2019, dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125], alternative  ="two.sided")
+t.test(dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320], alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=9.845e-07 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Germany and Italy is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.001082 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Germany and Ireland is different on (275,320).
+
+#We can say that Germany and Ireland had a more similar shape distribution on the second wave than in the first wave.
+
+######Romania and Croatia
 
 
+par(mfrow=c(2,1))
+plot(dataRomania$days.after.2019, dataRomania$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataCroatia$days.after.2019, dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataRomania$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125]*5/3, dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125], alternative  ="two.sided")
+t.test(dataRomania$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320]*5/3, dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320], alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=5.872e-07 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Romania and Croatia is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.07089 is greater than our alpha value=0.05, so we cannot reject the null hypothesis.
+#Therefore, we do not have enough evidence to say that the data distribution of Romania and Croatia is different on (275,320).
+
+#The proportion is Croatia=5/3*Romania
+
+#We can say that Croatia and Romania had a more similar shape distribution on the second wave than in the first wave.
+
+
+######Spain and Denmark
+
+par(mfrow=c(2,1))
+plot(dataSpain$days.after.2019, dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataDenmark$days.after.2019, dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125]*2, alternative  ="two.sided")
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320]*2, alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=4.206e-05 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Spain and Denmark is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=1.022e-08 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Spain and Denmark is different on (275,320).
+
+#The proportion is Spain=2*Denmark
+
+#We can say that Spain and Denmark had a more similar shape distribution on the second wave than in the first wave.
+
+######Croatia and Sweden
+
+par(mfrow=c(2,1))
+plot(dataCroatia$days.after.2019, dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataSweden$days.after.2019, dataSweden$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataSweden$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125]*5/3, alternative  ="two.sided")
+t.test(dataCroatia$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataSweden$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320]*5/3, alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=7.141e-14 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Croatia and Sweden is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.03678 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Croatia and Sweden is different on (275,320).
+
+#The proportion is Croatia=5/3*Sweden
+
+#We can say that Croatia and Sweden had a more similar shape distribution on the second wave than in the first wave.
+
+
+######Spain and United Kingdom
+
+par(mfrow=c(2,1))
+plot(dataSpain$days.after.2019, dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataUnitedKingdom$days.after.2019, dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125]*6/5, alternative  ="two.sided")
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320]*6/5, alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=3.347e-05 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Spain and United Kingdom is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.002681 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Spain and United Kingdom is different on (275,320).
+
+#The proportion is Spain=6/5*United Kingdom
+
+#We can say that Spain and United Kingdom had a more similar shape distribution on the second wave than in the first wave.
+
+
+######United Kingdom and Italy
+
+par(mfrow=c(2,1))
+plot(dataUnitedKingdom$days.after.2019, dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataItaly$days.after.2019, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125]*8/5, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125], alternative  ="two.sided")
+t.test(dataUnitedKingdom$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320]*8/5, dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320], alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=0.1462 is greater than our alpha value=0.05, so we cannot reject the null hypothesis.
+#Therefore, we do not have enough evidence to say that the data distribution of United Kingdom and Italy is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=1.737e-05 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of United Kingdom and Italy is different on (275,320).
+
+
+#The proportion is Italy=8/5*Italy
+
+#We can say that United Kingdom and Italy had a more similar shape distribution on the first wave than in the second wave.
+
+######France and Ireland
+
+par(mfrow=c(2,1))
+plot(dataFrance$days.after.2019, dataFrance$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataIreland$days.after.2019, dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataFrance$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125]*10/3, alternative  ="two.sided")
+t.test(dataFrance$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320]*10/3, alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=1.745e-12 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of France and Ireland is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=0.1113 is greater than our alpha value=0.05, so we cannot reject the null hypothesis.
+#Therefore, we do not have enough evidence to say that the data distribution of France and Ireland is different on (275,320).
+
+
+#The proportion is France=10/3*Ireland
+
+#We can say that France and Ireland had a more similar shape distribution on the second wave than in the first wave.
+
+######Spain and Germany
+
+par(mfrow=c(2,1))
+plot(dataSpain$days.after.2019, dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
+plot(dataGermany$days.after.2019, dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000)
+
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[75:125], dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[75:125]*2, alternative  ="two.sided")
+t.test(dataSpain$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000[250:320], dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[250:320]*2, alternative  ="two.sided")
+
+#In the interval (75, 125), our p-value=0.07323 is greater than our alpha value=0.05, so we cannot reject the null hypothesis.
+#Therefore, we do not have enough evidence to say that the data distribution of Spain and Germany is different on the interval (75,125).
+
+#In the interval (250,320), our p-value=1.531e-10 is less than our alpha value=0.05, so we can reject the null hypothesis.
+#Therefore, we have enough evidence to say that the data distribution of Spain and Germany is different on (275,320).
+
+#The proportion is Spain=2*Spain
+
+#We can say that Spain and Germany had a more similar shape distribution on the first wave than in the second wave.
