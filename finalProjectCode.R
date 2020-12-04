@@ -10,6 +10,7 @@ plot(dataItaly$days.after.2019, dataItaly$Cumulative_number_for_14_days_of_COVID
 head(data)
 italypop = data$popData2019[which(data$countriesAndTerritories=="Italy")][1]
 germpop = data$popData2019[which(data$countriesAndTerritories=="Germany")][1]
+irepop = data$popData2019[which(data$countriesAndTerritories=="Ireland")][1]
 
 table2=cbind.data.frame(dataItaly$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]/italypop + 5,
                         dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310]/germpop + 5)
@@ -17,6 +18,10 @@ table2
 
 chisq.test(table2, simulate.p.value = TRUE)
 
+table7 = cbind.data.frame(dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310] + 1,
+                                 dataGermany$Cumulative_number_for_14_days_of_COVID.19_cases_per_100000[14:310] + 1)
+
+chisq.test(table7, simulate.p.value = TRUE)
 
 ################################################################
 # plot all the graphs here!!!! |
