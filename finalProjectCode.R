@@ -34,3 +34,4 @@ plot(dataCroatia$days.after.2019, dataCroatia$Cumulative_number_for_14_days_of_C
 plot(dataDenmark$days.after.2019, dataDenmark$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
 plot(dataIreland$days.after.2019, dataIreland$Cumulative_number_for_14_days_of_COVID.19_cases_per_10000)
 
+par(mar=c(1,1,1,1))
